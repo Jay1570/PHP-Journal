@@ -1,0 +1,26 @@
+.center{
+    text-align:center;
+}
+
+button, a {
+    margin-left: 10px;
+}
+
+#btnCancel,#submit,#btnAdd,#btnTruncate,#btnSearch {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+table {
+    text-align:center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+input {
+    margin-top: 10px;
+}
+
+label {
+    margin-top: 10px;
+}
