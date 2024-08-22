@@ -8,12 +8,7 @@
     <title>Customer Details</title>
 </head>
 <body>
-    <?php
-        $conn=mysqli_connect('localhost','root','','bankDB');
-        $res=mysqli_query($conn,"SELECT * FROM custdetails WHERE cid=".$_GET['id']);
-        $row=$res->fetch_assoc();
-        $conn->close(); 
-    ?>
+    <?php require_once 'fetchUserData.php'?>
     <div class="container">
         <center><h1>Customer Details</h1></center>
         <table class="table table-bordered table-striped table-sm" style="width: 100%;">

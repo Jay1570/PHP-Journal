@@ -32,6 +32,23 @@
                 </form>
             </div>
         </div>
+        <div class="row mb-3">
+            <div class="col-sm">
+                <form class="form-inline justify-content-end" method="POST" action="import.php" enctype="multipart/form-data">
+                    <div class="input-group">
+                        <input type="file" class="form-control" name="file" id="file" accept=".csv" required />
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-success mt-2" name="import" id="">Import</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm">
+                <form class="form-inline justify-content-end" method="POST" action="export.php">
+                    <button type="submit" class="btn btn-primary mt-2" name="export" id="">Export to CSV</button>
+                </form>
+            </div>
+        </div>
         <center><h1>Customers</h1></center>
         <table class="table table-bordered">
             <tr>

@@ -8,12 +8,9 @@
     <title>Add Customer</title>
 </head>
 <body>
-    <?php
-        $conn=mysqli_connect('localhost','root','','bankDB');
-        $res=mysqli_query($conn,"SELECT * FROM custdetails WHERE cid=".$_GET['id']);
-        $row=$res->fetch_assoc();
+    <?php 
+        require_once 'fetchUserData.php';
         $selectedProof = $row['addressProof'];
-        $conn->close(); 
     ?>
     <?php
         if(isset($_POST['submit'])) {
@@ -43,7 +40,7 @@
         }
     ?>
     <div class="container">
-        <center><h1>Add Customer</h1></center>
+        <center><h1>Edit Details</h1></center>
         <form method="POST">
             <div class="sm-3">
                 <label class="form-label">Name</label>
