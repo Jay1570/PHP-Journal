@@ -7,15 +7,15 @@
 
         if ($fileExtension !== 'csv') {
             $conn->close();
-            echo "<script>alert('Error: Only CSV files are allowed'); window.location.href = 'index.php';</script>";
+            echo "<script>alert('Error: Only CSV files are allowed'); window.location.href = 'index.html';</script>";
             exit();
         }
 
         $row = mysqli_query($conn, "SHOW VARIABLES LIKE 'datadir'")->fetch_assoc();
-        $destination = $row['Value']."\\bankdb\\".basename($filename);
+        $destination = $row['Value'].DIRECTORY_SEPARATOR."bankdb".DIRECTORY_SEPARATOR.basename($filename);
         if (!move_uploaded_file($fileTmpName, $destination)) {
             $conn->close();
-            echo "<script>alert('Error: Failed to move uploaded file.'); window.location.href = 'index.php';</script>";
+            echo "<script>alert('Error: Failed to move uploaded file.'); window.location.href = 'index.html';</script>";
             exit();
         }
         $sql = "
@@ -29,12 +29,12 @@
         ";
         if(mysqli_query($conn,$sql)) {
             $conn->close();
-            echo "<script>alert('Data Imported Successfully'); window.location.href = 'index.php';</script>";
+            echo "<script>alert('Data Imported Successfully'); window.location.href = 'index.html';</script>";
             unlink($destination);
             unlink($fileTmpName);
         } else {
             $conn->close();
-            echo "<script>alert('Error:".$conn->error."'); window.location.href = 'index.php';</script>";
+            echo "<script>alert('Error:".$conn->error."'); window.location.href = 'index.html';</script>";
         }
     }
 ?>

@@ -4,7 +4,7 @@
     if (isset($_POST['export'])) {
         $fileName = 'data.csv';
         $row = mysqli_query($conn, "SHOW VARIABLES LIKE 'datadir'")->fetch_assoc();
-        $destination = $row['Value']."\\bankdb\\".basename($fileName);
+        $destination = $row['Value'].DIRECTORY_SEPARATOR."bankdb".DIRECTORY_SEPARATOR.basename($fileName);
 
         $sql = "
             SELECT 'name', 'address', 'addressProof', 'birthDate', 'contact', 'aadhar', 'nominee', 'relation'
@@ -22,7 +22,7 @@
             readfile($destination);
             unlink($destination);
         } else {
-            echo "<script>alert('Error: " . mysqli_error($conn) . "'); window.location.href = 'index.php';</script>";
+            echo "<script>alert('Error: " . mysqli_error($conn) . "'); window.location.href = 'index.html';</script>";
         }
 
         $conn->close();

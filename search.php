@@ -15,7 +15,7 @@
     ?>
     <div class="container">
         <div class="col-sm">
-        <a href="index.php" class="btn btn-warning" id="btnAdd">Go Back</a>
+        <a href="index.html" class="btn btn-warning" id="btnAdd">Go Back</a>
         <p>Search Results For :- <?php echo $_POST['aadhaar']?></p>
         </div>
         <table class="table table-bordered">

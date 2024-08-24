@@ -3,5 +3,5 @@
     $delete="TRUNCATE TABLE custdetails";
     mysqli_query($conn,$delete);
     $conn->close();
-    header("location:index.php");
+    header("location:index.html");
 ?>

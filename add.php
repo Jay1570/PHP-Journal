@@ -26,7 +26,7 @@
             
             if(mysqli_query($conn,$insert)) {
                 $conn->close();
-                header("location:index.php");
+                header("location:index.html");
             }
         }
     ?>
@@ -75,7 +75,7 @@
             <div class="sm-3">
                 <center>
                     <button type="submit" class="btn btn-primary" id="submit" name="submit">Submit</button>
-                    <a href="index.php" id="btnCancel" class="btn btn-danger">Cancel</a>
+                    <a href="index.html" id="btnCancel" class="btn btn-danger">Cancel</a>
                 </center>
             </div>
         </form>

@@ -3,5 +3,5 @@
     $delete="DELETE FROM custdetails WHERE cid=".$_GET['id'];
     mysqli_query($conn,$delete);
     $conn->close();
-    header("location:index.php");
+    header("location:index.html");
 ?>

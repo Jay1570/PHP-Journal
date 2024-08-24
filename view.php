@@ -52,7 +52,7 @@
         <center>
             <a href="edit.php?id=<?php echo $row['cid'] ?>" class="btn btn-warning">Edit</a>
             <a href="delete.php?id=<?php echo $row['cid'] ?>" class="btn btn-danger">Delete</a>
-            <a href="index.php" class="btn btn-secondary">Go Back</a>
+            <a href="index.html" class="btn btn-secondary">Go Back</a>
         </center>
     </div>
 </body>
