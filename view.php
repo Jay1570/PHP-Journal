@@ -8,6 +8,9 @@
     <title>Customer Details</title>
 </head>
 <body>
+    <header>
+        <?php include_once 'navbar.html'?>
+    </header>
     <?php require_once 'fetchUserData.php'?>
     <div class="container">
         <center><h1>Customer Details</h1></center>
@@ -52,7 +55,7 @@
         <center>
             <a href="edit.php?id=<?php echo $row['cid'] ?>" class="btn btn-warning">Edit</a>
             <a href="delete.php?id=<?php echo $row['cid'] ?>" class="btn btn-danger">Delete</a>
-            <a href="index.html" class="btn btn-secondary">Go Back</a>
+            <a href="main.php" class="btn btn-secondary">Go Back</a>
         </center>
     </div>
 </body>

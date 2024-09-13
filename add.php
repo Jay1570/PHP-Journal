@@ -8,6 +8,9 @@
     <title>Add Customer</title>
 </head>
 <body>
+    <header>
+        <?php include_once 'navbar.html'?>
+    </header>
     <?php
         if(isset($_POST['submit'])) {
             $conn=mysqli_connect('localhost','root','','bankDB');
@@ -26,7 +29,7 @@
             
             if(mysqli_query($conn,$insert)) {
                 $conn->close();
-                header("location:index.html");
+                header("location:main.php");
             }
         }
     ?>
@@ -75,7 +78,7 @@
             <div class="sm-3">
                 <center>
                     <button type="submit" class="btn btn-primary" id="submit" name="submit">Submit</button>
-                    <a href="index.html" id="btnCancel" class="btn btn-danger">Cancel</a>
+                    <a href="main.php" id="btnCancel" class="btn btn-danger">Cancel</a>
                 </center>
             </div>
         </form>

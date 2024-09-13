@@ -1,6 +1,6 @@
 <?php
-    $pageNo = isset($_GET['page']) ? $_GET['page'] : 1;
-    $noOfRows = isset($_GET['rows']) ? $_GET['rows'] : 25;
+    $pageNo = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $noOfRows = isset($_GET['rows']) ? (int)$_GET['rows'] : 25;
     $startFrom = ($pageNo-1) * $noOfRows;
     $conn = mysqli_connect('localhost','root','','bankDB');
     $sql = "SELECT cid, name, contact FROM custdetails LIMIT $startFrom, $noOfRows";

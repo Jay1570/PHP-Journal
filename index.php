@@ -9,7 +9,9 @@
     <body>
         <?php
             if(isset($_COOKIE['email'])) {
-                header("location:main.html");
+                session_start();
+                $_SESSION['email'] = $_COOKIE['email'];
+                header("location:main.php");
             }
         ?>
         <?php
@@ -23,7 +25,11 @@
                 $res=$conn->query($query);
                 if($res->num_rows > 0) {
                     setcookie('email', $email, time() + 600, "/");
-                    header('location:main.html');
+                    session_start();
+                    $_SESSION['email'] = $email;
+                    header('location:main.php');
+                } else {
+                    echo "<script>alert('Email or Password is incorrect'); window.location.href = 'main.php';</script>";
                 }
             }
         ?>

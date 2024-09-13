@@ -8,6 +8,9 @@
     <title>Add Customer</title>
 </head>
 <body>
+    <header>
+        <?php include_once 'navbar.html'?>    
+    </header>
     <?php 
         require_once 'fetchUserData.php';
         $selectedProof = $row['addressProof'];

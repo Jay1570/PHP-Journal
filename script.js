@@ -55,6 +55,7 @@ function lastPage() {
 }
 
 window.onload = function() {
+    document.getElementById("page").selectedIndex = 0
     updatePageOptions();
 };
 

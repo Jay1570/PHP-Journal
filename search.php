@@ -8,6 +8,9 @@
     <title>Search</title>
 </head>
 <body>
+    <header>
+        <?php include_once 'navbar.html'?>
+    </header>
     <?php
         $conn=mysqli_connect('localhost','root','','bankDB');
         $res=mysqli_query($conn,"SELECT cid, name, contact FROM custdetails WHERE aadhar=".$_POST['aadhaar']);
@@ -15,7 +18,7 @@
     ?>
     <div class="container">
         <div class="col-sm">
-        <a href="index.html" class="btn btn-warning" id="btnAdd">Go Back</a>
+        <a href="main.php" class="btn btn-warning" id="btnAdd">Go Back</a>
         <p>Search Results For :- <?php echo $_POST['aadhaar']?></p>
         </div>
         <table class="table table-bordered">

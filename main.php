@@ -44,29 +44,24 @@
     <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
+    <?php
+        session_start();
+        if(!isset($_SESSION['email'])) {
+            header("location:index.php");
+            die();
+        }
+    ?>
+    <header>
+        <?php include_once 'navbar.html'?>
+    </header>
     <div class="container">
         <div class="row mb-3">
             <div class="col-sm">
-                <a href="add.php" class="btn btn-success" id="btnAdd">Add Record</a>
-            </div>
-            <div class="col-sm">
-                <a href="truncate.php" class="btn btn-danger" id="btnTruncate">Empty Table</a>
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-sm">
                 <form class="form-inline justify-content-end" method="POST" action="import.php" enctype="multipart/form-data">
-                    <div class="input-group">
-                        <input type="file" class="form-control mt-2" name="file" id="file" accept=".csv" required />
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-success mt-2" name="import" id="">Import</button>
-                        </div>
+                    <div class="input-group mt-2">
+                        <input type="file" class="form-control" name="file" id="file" accept=".csv" required />
+                        <button type="submit" class="btn btn-outline-success" name="import" id="">Import</button>
                     </div>
-                </form>
-            </div>
-            <div class="col-sm">
-                <form class="form-inline justify-content-end" method="POST" action="export.php">
-                    <button type="submit" class="btn btn-primary mt-2" name="export" id="">Export to CSV</button>
                 </form>
             </div>
         </div>
