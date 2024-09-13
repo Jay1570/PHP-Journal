@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Customers</title>
+    <title>Employees</title>
     <style>
         .pagination-container {
             display: flex;
@@ -41,31 +41,14 @@
             background-color: #555;
         }
     </style>
-    <script type="text/javascript" src="script.js" defer></script>
+    <script type="text/javascript" src="script_employee.js"></script>
 </head>
 <body>
-    <?php
-        session_start();
-        if(!isset($_SESSION['email'])) {
-            header("location:index.php");
-            die();
-        }
-    ?>
     <header>
         <?php include_once 'navbar.html'?>
     </header>
     <div class="container">
-        <div class="row mb-3">
-            <div class="col-sm">
-                <form class="form-inline justify-content-end" method="POST" action="import.php" enctype="multipart/form-data">
-                    <div class="input-group mt-2">
-                        <input type="file" class="form-control" name="file" id="file" accept=".csv" required />
-                        <button type="submit" class="btn btn-outline-success" name="import" id="">Import</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <center><h1>Customers</h1></center>
+        <center><h1>Employees</h1></center>
         <div class="pagination-container">
             <select class="form-select form-select-sm" id="page" onchange="showData()" style="width: 80px;">
             </select>
@@ -85,14 +68,14 @@
             </select>
             <span style="border-left: 1px solid #ccc; height: 24px; margin-left: 10px;"></span>
             <div class="input-group">
-                <input type="text" id="search" oninput="search()" name="aadhaar" class="form-control" pattern="\d*" minlength="12" maxlength="12" placeholder="Enter Aadhaar Number to Search" required/>
+                <input type="text" id="search" oninput="search()" class="form-control" pattern="\d*" minlength="12" maxlength="12" placeholder="Enter Email to Search" required/>
             </div>
         </div>
         <table id="data" class="table table-bordered">
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Contact</th>
+                <th>Password</th>
                 <th>Actions</th>
             </tr>
         </table>

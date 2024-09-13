@@ -1,51 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <title>Search</title>
-</head>
-<body>
-    <header>
-        <?php include_once 'navbar.html'?>
-    </header>
-    <?php
-        $conn=mysqli_connect('localhost','root','','bankDB');
-        $res=mysqli_query($conn,"SELECT cid, name, contact FROM custdetails WHERE aadhar=".$_POST['aadhaar']);
-        $conn->close();
-    ?>
-    <div class="container">
-        <div class="col-sm">
-        <a href="main.php" class="btn btn-warning" id="btnAdd">Go Back</a>
-        <p>Search Results For :- <?php echo $_POST['aadhaar']?></p>
-        </div>
-        <table class="table table-bordered">
+<?php
+    $query = $_GET['query']."%";
+    $conn = mysqli_connect('localhost','root','','bankDB');
+    $stmt = $conn->prepare("SELECT cid, name, contact FROM custdetails WHERE CAST(aadhar AS CHAR) LIKE ?");
+    $stmt->bind_param("s", $query);
+    $stmt->execute();
+    $res = $stmt->get_result();
+
+    echo "
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Actions</th>
+        </tr>
+    ";
+
+    while($row=$res->fetch_assoc()) {
+        echo '
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Contact</th>
-                <th>Actions</th>
-            </tr>
-            <?php
-                if($res->num_rows>0) :
-                    while ($row=$res->fetch_assoc()) :
-            ?>
-            <tr>
-                <td><?php echo $row['cid'] ?></td>
-                <td><?php echo $row['name'] ?></td>
-                <td><?php echo $row['contact'] ?></td>
+                <td>'.$row['cid'].'</td>
+                <td>'.$row['name'].'</td>
+                <td>'.$row['contact'].'</td>
                 <td>
-                    <a href="view.php?id=<?php echo $row['cid']?>" class="btn btn-success">View</a>
-                    <a href="delete.php?id=<?php echo $row['cid']?>" class="btn btn-danger">Delete</a>
+                    <a href="view.php?id='.$row['cid'].'" class="btn btn-success">View</a>
+                    <a href="delete.php?id='.$row['cid'].'" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
-            <?php
-                    endwhile;
-                endif;
-            ?>
-        </table>
-    </div>
-</body>
-</html>
+        ';
+    }
+    $conn->close();
+?>
