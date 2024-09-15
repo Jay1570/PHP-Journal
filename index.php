@@ -10,7 +10,7 @@
             if(isset($_COOKIE['email'])) {
                 session_start();
                 $_SESSION['email'] = $_COOKIE['email'];
-                header("location:main.php");
+                header("location:customer/index.php");
             }
         ?>
         <?php
@@ -26,7 +26,7 @@
                     setcookie('email', $email, time() + 600, "/");
                     session_start();
                     $_SESSION['email'] = $email;
-                    header('location:main.php');
+                    header('location:customer/index.php');
                 } else {
                     echo "<script>alert('Email or Password is incorrect'); window.location.href = 'index.php';</script>";
                 }

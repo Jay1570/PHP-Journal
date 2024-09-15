@@ -7,7 +7,7 @@ function showData() {
             document.getElementById("data").innerHTML = this.responseText
         }
     };
-    xmlhttp.open("GET","display_employee.php?rows="+rows+"&page="+page,true);
+    xmlhttp.open("GET","display.php?rows="+rows+"&page="+page,true);
     xmlhttp.send();
 }
 
@@ -22,7 +22,7 @@ function updatePageOptions() {
             showData();
         }
     };
-    xmlhttp.open("GET", "pages_employee.php?rows="+rows, true);
+    xmlhttp.open("GET", "pages.php?rows="+rows, true);
     xmlhttp.send();
 }
 
@@ -38,7 +38,7 @@ function search() {
             document.getElementById("data").innerHTML = this.responseText 
         }
     };
-    xmlhttp.open("GET","search_employee.php?query="+search,true);
+    xmlhttp.open("GET","search.php?query="+search,true);
     xmlhttp.send();
 }
 

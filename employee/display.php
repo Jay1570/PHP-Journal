@@ -1,10 +1,10 @@
 <?php
-    $query=$_GET['query']."%";
+    $pageNo = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $noOfRows = isset($_GET['rows']) ? (int)$_GET['rows'] : 25;
+    $startFrom = ($pageNo-1) * $noOfRows;
     $conn = mysqli_connect('localhost','root','','bankDB');
-    $stmt = $conn->prepare("SELECT eid, email, password FROM empdetails WHERE email LIKE ?");
-    $stmt->bind_param("s", $query);
-    $stmt->execute();
-    $res = $stmt->get_result();
+    $sql = "SELECT eid, email, password FROM empdetails LIMIT $startFrom, $noOfRows";
+    $res = $conn->query($sql);
     echo "
         <tr>
             <th>Id</th>
@@ -21,7 +21,7 @@
                 <td>'.$row['email'].'</td>
                 <td>'.$row['password'].'</td>
                 <td>
-                    <a href="delete_employee.php?id='.$row['eid'].'" class="btn btn-danger">Delete</a>
+                    <a href="delete.php?id='.$row['eid'].'" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         ';

@@ -1,7 +1,7 @@
 <?php
     $conn=mysqli_connect('localhost','root','','bankDB');
-    $delete="DELETE FROM custdetails WHERE cid=".$_GET['id'];
+    $delete="TRUNCATE TABLE custdetails";
     mysqli_query($conn,$delete);
     $conn->close();
-    header("location:main.php");
+    header("location:index.php");
 ?>

@@ -1,6 +1,6 @@
 <?php
     $conn = mysqli_connect('localhost', 'root', '', 'bankDB');
-    $fileName = 'data.csv';
+    $fileName = 'customer.csv';
     $row = mysqli_query($conn, "SHOW VARIABLES LIKE 'datadir'")->fetch_assoc();
     $destination = $row['Value'].DIRECTORY_SEPARATOR."bankdb".DIRECTORY_SEPARATOR.basename($fileName);
 
@@ -20,7 +20,7 @@
         readfile($destination);
         unlink($destination);
     } else {
-        echo "<script>alert('Error: " . mysqli_error($conn) . "'); window.location.href = 'main.php';</script>";
+        echo "<script>alert('Error: " . mysqli_error($conn) . "'); window.location.href = 'index.php';</script>";
     }
 
     $conn->close();

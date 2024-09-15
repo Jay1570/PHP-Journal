@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
     <title>Employees</title>
     <style>
         .pagination-container {
@@ -41,7 +41,7 @@
             background-color: #555;
         }
     </style>
-    <script type="text/javascript" src="script_employee.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
     <header>

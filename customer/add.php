@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
     <title>Add Customer</title>
 </head>
 <body>
@@ -29,7 +29,7 @@
             
             if(mysqli_query($conn,$insert)) {
                 $conn->close();
-                header("location:main.php");
+                header("location:index.php");
             }
         }
     ?>
@@ -78,7 +78,7 @@
             <div class="sm-3">
                 <center>
                     <button type="submit" class="btn btn-primary" id="submit" name="submit">Submit</button>
-                    <a href="main.php" id="btnCancel" class="btn btn-danger">Cancel</a>
+                    <a href="index.php" id="btnCancel" class="btn btn-danger">Cancel</a>
                 </center>
             </div>
         </form>

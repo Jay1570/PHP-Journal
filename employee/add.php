@@ -2,7 +2,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <title>Add Employee</title>
     </head>
     <body>
@@ -18,14 +18,14 @@
                 $conPass=$_POST['confirmPassword'];
                 
                 if($pass != $conPass) {
-                    echo "<script>alert('Password and Confirm password does not match...'); window.location.href = 'add_employee.php';</script>";
+                    echo "<script>alert('Password and Confirm password does not match...'); window.location.href = 'add.php';</script>";
                     $conn->close();
                     die();
                 }
                 $query="SELECT * FROM empdetails WHERE email='$email'";
                 $res=$conn->query($query);
                 if($res->num_rows > 0) {
-                    echo "<script>alert('Email already exists...'); window.location.href = 'add_employee.php';</script>";
+                    echo "<script>alert('Email already exists...'); window.location.href = 'add.php';</script>";
                     $conn->close();
                     die();
                 }
@@ -35,7 +35,7 @@
                 $stmt->execute();
                 $stmt->close();
                 $conn->close();
-                header("location:view_employee.php");
+                header("location:index.php");
             }
         ?>
         <div class="container">
@@ -52,14 +52,14 @@
                             <input class="form-control" id="password" type="password" name="password" placeholder="Enter Password" required />
                         </div>
                         <div class="form-group">
-                            <label for="confirPassword" class="form-label">Password</label>
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
                             <input class="form-control" id="confirmPassword" type="password" name="confirmPassword" placeholder="Enter Password Again" required />
                         </div>
                         <div class="form-group mt-5">
                             <button class="btn btn-primary form-control" type="submit" name="add">Add Employee</button>
                         </div>
                         <div class="form-group mt-3">
-                            <a class="btn btn-danger form-control" href="main.php">Cancel</a>
+                            <a class="btn btn-danger form-control" href="index.php">Cancel</a>
                         </div>
                     </div>
                 </div>

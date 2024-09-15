@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
     <title>Customer Details</title>
 </head>
 <body>
@@ -55,7 +55,7 @@
         <center>
             <a href="edit.php?id=<?php echo $row['cid'] ?>" class="btn btn-warning">Edit</a>
             <a href="delete.php?id=<?php echo $row['cid'] ?>" class="btn btn-danger">Delete</a>
-            <a href="main.php" class="btn btn-secondary">Go Back</a>
+            <a href="index.php" class="btn btn-secondary">Go Back</a>
         </center>
     </div>
 </body>
